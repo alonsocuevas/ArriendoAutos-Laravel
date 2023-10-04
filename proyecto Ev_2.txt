@@ -1,0 +1,72 @@
+Instalar XAMPP: https://www.apachefriends.org/es/index.html
+a un lado del boton de Descargar aparece la version mas actual disponible, 
+pincha eso para descarga la version mas actual
+
+cuanto instales XAMPP verifica lo siguinte:
+ve a esta ruta: 
+C:\xampp\php
+y dentro de esa ruta ubica el archivo: 
+php.ini 
+y abrelo, para luego verificar que la linea de codigo About php.ini   ;
+que es la primera linea de codigo
+no tenga un punto y coma al inicio, pero si al final, 
+si es que lo tuviera se lo quitas, o sea que se vea asi:
+;;;;;;;;;;;;;;;;;;;
+ About php.ini   ;
+;;;;;;;;;;;;;;;;;;;
+luego de eso guardar los cambios y cerrar el archivo
+
+
+
+
+Instalar COMPOSER: https://getcomposer.org/download/	
+presiona el texto de color que dice: Composer-Setup.exe
+ese texto se encuentra al principio de esta pagina web
+en el apartado: Windows Installer
+
+
+
+
+abres XAMPP he inicias los servidores de Apache y MySQL 
+y abres phpMyAdmin precionando en el boton de Admin de MySQL
+y creas una nueva base de datos llamada: cafeteria
+
+luego abres el explorador de archivos y te situas en 
+C:\xampp\htdocs 
+estando adentro de esa ruta abres CMD y ejecutas esto:
+git clone --single-branch --branch master https://github.com/jeremyormeno30/Evaluacion_1.git
+
+luego entras a la carpeta que se creo y desde su interior ejecutas CMD
+para luego ejecutar lo siguinte:
+composer install
+
+luego abres el proyecto con Visual Studio Code y buscar el archivo:
+.env.example 
+lo copias y lo pegas alli mismo 
+pero esa copia la renombras a 
+.env
+dentro de .env buscas el apartado de: DB_DATABASE= y le escribes el 
+nombre de la base de datos creada en phpMyAdmin: cafeteria 
+se deberia ver asi: DB_DATABASE=cafeteria
+
+luego en el cmd que ejecutaste composer ejecutas lo siguinte:
+php artisan key:generate
+y veras que en el apartado: APP_KEY= 
+se genera una clave encriptada para la coneccion
+
+luego ejecutas el siguinte comando: 
+php artisan migrate
+esto es para migrar los datos hacia la base de datos en phpMyAdmin
+
+luego en phpMyAdmin selecionas la base de datos creada: cafeteria 
+y buscas en la barra de exploracion la opcion de: Importar 
+he importas el archivo: 
+script_productos.txt 
+que se ubica en:
+C:\xampp\htdocs\Evaluacion_1\Script_Products 
+
+luego vas al buscador web y en la url escrbes esto:
+http://localhost/Evaluacion_1/public/login
+y podras visuaizar la pagina web
+
+EVALUACION_1 ES EL NOMBRE DE LA CARPETA QUE CONTIENE EL PROYECTO
